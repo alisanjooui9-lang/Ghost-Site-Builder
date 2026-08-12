@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ثبت درخواست | Ghost Site Builder</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    background:#070707;
+    color:white;
+    font-family:tahoma,Arial,sans-serif;
+}
+
+.header{
+    height:70px;
+    background:#101010;
+    border-bottom:1px solid #292929;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 15px;
+}
+
+.logo{
+    font-size:21px;
+    font-weight:bold;
+}
+
+.back{
+    color:white;
+    text-decoration:none;
+
+    background:#222;
+    border:1px solid #444;
+
+    padding:9px 13px;
+    border-radius:10px;
+}
+
+.container{
+    width:100%;
+    max-width:650px;
+    margin:auto;
+    padding:30px 15px 50px;
+}
+
+.title{
+    text-align:center;
+}
+
+.subtitle{
+    color:#888;
+    text-align:center;
+    line-height:1.9;
+    font-size:13px;
+    margin-bottom:25px;
+}
+
+.form{
+    background:#121212;
+    border:1px solid #2d2d2d;
+    border-radius:20px;
+    padding:20px;
+}
+
+label{
+    display:block;
+    margin:15px 0 7px;
+    font-size:13px;
+}
+
+input,
+select,
+textarea{
+    width:100%;
+
+    background:#222;
+    color:white;
+
+    border:1px solid #444;
+    border-radius:11px;
+
+    padding:13px;
+
+    outline:none;
+    font-family:tahoma;
+}
+
+textarea{
+    min-height:120px;
+    resize:vertical;
+}
+
+.options{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+}
+
+.option{
+    background:#1d1d1d;
+    border:1px solid #383838;
+    border-radius:12px;
+    padding:12px;
+}
+
+.option label{
+    margin:0;
+}
+
+.submit{
+    width:100%;
+    margin-top:22px;
+
+    background:white;
+    color:black;
+
+    border:0;
+    border-radius:12px;
+
+    padding:14px;
+
+    font-family:tahoma;
+    font-weight:bold;
+    font-size:15px;
+
+    cursor:pointer;
+}
+
+.result{
+    display:none;
+
+    margin-top:20px;
+
+    background:#17251b;
+    border:1px solid #31563a;
+
+    border-radius:14px;
+
+    padding:15px;
+
+    line-height:1.9;
+    color:#b9f5c5;
+}
+
+.footer{
+    text-align:center;
+    color:#555;
+    padding:25px;
+    border-top:1px solid #222;
+    font-size:12px;
+}
+
+@media(max-width:500px){
+
+    .options{
+        grid-template-columns:1fr;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header class="header">
+
+<div class="logo">
+👻 Ghost Site Builder
+</div>
+
+<a
+class="back"
+href="index.html">
+← خانه
+</a>
+
+</header>
+
+
+<main class="container">
+
+<h1 class="title">
+📝 ثبت درخواست ساخت سایت
+</h1>
+
+<p class="subtitle">
+مشخصات پروژه‌ات را وارد کن تا بتوانیم درخواستت را بررسی کنیم.
+</p>
+
+
+<form
+class="form"
+id="requestForm">
+
+
+<label for="name">
+نام شما
+</label>
+
+<input
+id="name"
+type="text"
+placeholder="مثلاً علی"
+required>
+
+
+<label for="project">
+نام پروژه
+</label>
+
+<input
+id="project"
+type="text"
+placeholder="مثلاً سایت فروشگاهی من"
+required>
+
+
+<label for="type">
+نوع سایت
+</label>
+
+<select
+id="type"
+required>
+
+<option value="">
+انتخاب نوع سایت
+</option>
+
+<option>
+شخصی
+</option>
+
+<option>
+فروشگاهی
+</option>
+
+<option>
+آموزشی
+</option>
+
+<option>
+گیمینگ
+</option>
+
+<option>
+شرکتی
+</option>
+
+<option>
+وبلاگ
+</option>
+
+<option>
+سایر
+</option>
+
+</select>
+
+
+<label>
+امکانات موردنیاز
+</label>
+
+<div class="options">
+
+<div class="option">
+<label>
+<input
+type="checkbox"
+value="طراحی موبایل"
+class="feature">
+📱 طراحی موبایلی
+</label>
+</div>
+
+<div class="option">
+<label>
+<input
+type="checkbox"
+value="صفحه ورود"
+class="feature">
+🔐 صفحه ورود
+</label>
+</div>
+
+<div class="option">
+<label>
+<input
+type="checkbox"
+value="پنل مدیریت"
+class="feature">
+⚙️ پنل مدیریت
+</label>
+</div>
+
+<div class="option">
+<label>
+<input
+type="checkbox"
+value="حالت تاریک"
+class="feature">
+🌙 حالت تاریک
+</label>
+</div>
+
+<div class="option">
+<label>
+<input
+type="checkbox"
+value="فرم تماس"
+class="feature">
+📩 فرم تماس
+</label>
+</div>
+
+<div class="option">
+<label>
+<input
+type="checkbox"
+value="گالری"
+class="feature">
+🖼️ گالری
+</label>
+</div>
+
+</div>
+
+
+<label for="description">
+توضیحات پروژه
+</label>
+
+<textarea
+id="description"
+placeholder="توضیح بده سایتت چه شکلی باشد و چه امکاناتی داشته باشد..."
+required></textarea>
+
+
+<label for="contact">
+راه ارتباطی
+</label>
+
+<input
+id="contact"
+type="text"
+placeholder="مثلاً آیدی روبیکا یا ایمیل"
+required>
+
+
+<button
+class="submit"
+type="submit">
+
+🚀 ثبت درخواست
+
+</button>
+
+
+<div
+class="result"
+id="result">
+</div>
+
+
+</form>
+
+</main>
+
+
+<footer class="footer">
+
+👻 Ghost Site Builder
+
+<br><br>
+
+ساخته شده توسط GHOST ACADEMY
+
+<br><br>
+
+© 2026
+
+</footer>
+
+
+<script>
+
+const form =
+document.getElementById("requestForm");
+
+const result =
+document.getElementById("result");
+
+
+form.addEventListener(
+"submit",
+function(event){
+
+event.preventDefault();
+
+
+const name =
+document.getElementById("name").value.trim();
+
+const project =
+document.getElementById("project").value.trim();
+
+const type =
+document.getElementById("type").value;
+
+const description =
+document.getElementById("description").value.trim();
+
+const contact =
+document.getElementById("contact").value.trim();
+
+
+const features =
+[];
+
+document
+.querySelectorAll(".feature:checked")
+.forEach(function(item){
+
+features.push(item.value);
+
+});
+
+
+const request = {
+
+id:
+"GHOST-" +
+Date.now(),
+
+name:name,
+
+project:project,
+
+type:type,
+
+features:features,
+
+description:description,
+
+contact:contact,
+
+status:"در انتظار بررسی",
+
+date:
+new Date().toLocaleString("fa-IR")
+
+};
+
+
+/* ذخیره درخواست */
+
+const requests =
+JSON.parse(
+localStorage.getItem("ghost_requests") || "[]"
+);
+
+requests.push(request);
+
+localStorage.setItem(
+"ghost_requests",
+JSON.stringify(requests)
+);
+
+
+/* نمایش نتیجه */
+
+result.style.display="block";
+
+result.innerHTML =
+
+"✅ درخواست با موفقیت ثبت شد!<br><br>" +
+
+"کد پیگیری: <b>" +
+request.id +
+"</b><br>" +
+
+"وضعیت: " +
+request.status;
+
+
+form.reset();
+
+});
+
+</script>
+
+
+</body>
+
+  </html>
