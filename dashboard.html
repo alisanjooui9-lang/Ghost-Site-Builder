@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>پنل مدیریت | Ghost Site Builder</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    background:#070707;
+    color:white;
+    font-family:tahoma,Arial,sans-serif;
+}
+
+.header{
+    min-height:70px;
+    background:#101010;
+    border-bottom:1px solid #292929;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:12px 15px;
+}
+
+.logo{
+    font-size:21px;
+    font-weight:bold;
+}
+
+.back{
+    color:white;
+    text-decoration:none;
+    background:#222;
+    border:1px solid #444;
+    padding:9px 13px;
+    border-radius:10px;
+}
+
+.container{
+    max-width:850px;
+    margin:auto;
+    padding:25px 15px 50px;
+}
+
+.title{
+    text-align:center;
+}
+
+.subtitle{
+    text-align:center;
+    color:#888;
+    font-size:13px;
+    line-height:1.8;
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+    margin:25px 0;
+}
+
+.stat{
+    background:#141414;
+    border:1px solid #303030;
+    border-radius:15px;
+    padding:16px;
+    text-align:center;
+}
+
+.stat-number{
+    font-size:25px;
+    font-weight:bold;
+}
+
+.stat-name{
+    color:#888;
+    font-size:11px;
+}
+
+.orders{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.order{
+    background:#131313;
+    border:1px solid #303030;
+    border-radius:18px;
+    padding:18px;
+}
+
+.order-id{
+    color:#888;
+    font-size:11px;
+}
+
+.order h3{
+    margin:8px 0;
+}
+
+.info{
+    color:#aaa;
+    font-size:13px;
+    line-height:2;
+}
+
+.features{
+    color:#bbb;
+    font-size:12px;
+    line-height:1.8;
+}
+
+select{
+    width:100%;
+    margin-top:12px;
+
+    background:#222;
+    color:white;
+
+    border:1px solid #444;
+    border-radius:10px;
+
+    padding:11px;
+
+    font-family:tahoma;
+}
+
+.delete{
+    width:100%;
+    margin-top:8px;
+
+    background:#351818;
+    color:white;
+
+    border:1px solid #5a2525;
+
+    border-radius:10px;
+    padding:11px;
+
+    font-family:tahoma;
+}
+
+.empty{
+    text-align:center;
+    color:#777;
+    padding:60px 15px;
+}
+
+@media(max-width:600px){
+
+    .stats{
+        grid-template-columns:1fr;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header class="header">
+
+<div class="logo">
+👻 Ghost Site Builder
+</div>
+
+<a
+class="back"
+href="index.html">
+← خانه
+</a>
+
+</header>
+
+
+<main class="container">
+
+<h1 class="title">
+⚙️ پنل مدیریت
+</h1>
+
+<p class="subtitle">
+مدیریت درخواست‌های ساخت سایت
+</p>
+
+
+<section class="stats">
+
+<div class="stat">
+
+<div
+class="stat-number"
+id="total">
+0
+</div>
+
+<div class="stat-name">
+کل درخواست‌ها
+</div>
+
+</div>
+
+
+<div class="stat">
+
+<div
+class="stat-number"
+id="pending">
+0
+</div>
+
+<div class="stat-name">
+در انتظار بررسی
+</div>
+
+</div>
+
+
+<div class="stat">
+
+<div
+class="stat-number"
+id="completed">
+0
+</div>
+
+<div class="stat-name">
+تکمیل شده
+</div>
+
+</div>
+
+</section>
+
+
+<section
+class="orders"
+id="orders">
+</section>
+
+
+<div
+class="empty"
+id="empty">
+
+📭
+
+<p>
+هنوز هیچ درخواستی ثبت نشده است.
+</p>
+
+</div>
+
+</main>
+
+
+<script>
+
+const ordersBox =
+document.getElementById("orders");
+
+const empty =
+document.getElementById("empty");
+
+const total =
+document.getElementById("total");
+
+const pending =
+document.getElementById("pending");
+
+const completed =
+document.getElementById("completed");
+
+
+function getRequests(){
+
+return JSON.parse(
+localStorage.getItem("ghost_requests") || "[]"
+);
+
+}
+
+
+function saveRequests(requests){
+
+localStorage.setItem(
+"ghost_requests",
+JSON.stringify(requests)
+);
+
+}
+
+
+function render(){
+
+const requests =
+getRequests();
+
+ordersBox.innerHTML="";
+
+
+total.innerText =
+requests.length;
+
+pending.innerText =
+requests.filter(
+r => r.status === "در انتظار بررسی"
+).length;
+
+completed.innerText =
+requests.filter(
+r => r.status === "تکمیل شده"
+).length;
+
+
+if(requests.length === 0){
+
+empty.style.display="block";
+
+return;
+
+}
+
+
+empty.style.display="none";
+
+
+requests
+.slice()
+.reverse()
+.forEach(function(request,index){
+
+const card =
+document.createElement("article");
+
+card.className="order";
+
+
+const features =
+request.features &&
+request.features.length
+? request.features.join("، ")
+: "بدون امکانات اضافی";
+
+
+card.innerHTML = `
+
+<div class="order-id">
+کد درخواست: ${escapeHTML(request.id)}
+</div>
+
+<h3>
+🌐 ${escapeHTML(request.project)}
+</h3>
+
+<div class="info">
+
+👤 نام: ${escapeHTML(request.name)}
+<br>
+
+📂 نوع سایت: ${escapeHTML(request.type)}
+<br>
+
+📩 ارتباط: ${escapeHTML(request.contact)}
+<br>
+
+🕒 تاریخ: ${escapeHTML(request.date)}
+
+</div>
+
+<br>
+
+<div class="features">
+
+🧩 امکانات:
+<br>
+
+${escapeHTML(features)}
+
+<br><br>
+
+📝 توضیحات:
+<br>
+
+${escapeHTML(request.description)}
+
+</div>
+
+<select
+onchange="changeStatus('${request.id}',this.value)">
+
+<option ${request.status==="در انتظار بررسی" ? "selected":""}>
+در انتظار بررسی
+</option>
+
+<option ${request.status==="در حال ساخت" ? "selected":""}>
+در حال ساخت
+</option>
+
+<option ${request.status==="آماده بررسی" ? "selected":""}>
+آماده بررسی
+</option>
+
+<option ${request.status==="تکمیل شده" ? "selected":""}>
+تکمیل شده
+</option>
+
+</select>
+
+<button
+class="delete"
+onclick="deleteRequest('${request.id}')">
+
+🗑️ حذف درخواست
+
+</button>
+
+`;
+
+ordersBox.appendChild(card);
+
+});
+
+}
+
+
+function changeStatus(id,status){
+
+const requests =
+getRequests();
+
+const request =
+requests.find(
+r => r.id === id
+);
+
+if(!request){
+return;
+}
+
+request.status =
+status;
+
+saveRequests(requests);
+
+render();
+
+}
+
+
+function deleteRequest(id){
+
+const answer =
+confirm(
+"آیا مطمئنی که می‌خواهی این درخواست را حذف کنی؟"
+);
+
+if(!answer){
+return;
+}
+
+const requests =
+getRequests().filter(
+r => r.id !== id
+);
+
+saveRequests(requests);
+
+render();
+
+}
+
+
+/*
+ جلوگیری از نمایش HTML
+ واردشده توسط کاربر
+*/
+
+function escapeHTML(text){
+
+return String(text)
+.replace(/&/g,"&amp;")
+.replace(/</g,"&lt;")
+.replace(/>/g,"&gt;")
+.replace(/"/g,"&quot;")
+.replace(/'/g,"&#039;");
+
+}
+
+
+render();
+
+</script>
+
+
+</body>
+
+</html>
