@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ورود مدیر | Ghost Site Builder</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    min-height:100vh;
+
+    background:#070707;
+    color:white;
+
+    font-family:tahoma,Arial,sans-serif;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:20px;
+}
+
+.login-box{
+    width:100%;
+    max-width:420px;
+
+    background:#121212;
+
+    border:1px solid #303030;
+
+    border-radius:22px;
+
+    padding:25px;
+}
+
+.logo{
+    text-align:center;
+    font-size:50px;
+}
+
+h1{
+    text-align:center;
+    margin:10px 0;
+}
+
+.subtitle{
+    text-align:center;
+    color:#888;
+    font-size:13px;
+    line-height:1.8;
+
+    margin-bottom:25px;
+}
+
+label{
+    display:block;
+    margin:15px 0 7px;
+
+    font-size:13px;
+}
+
+input{
+    width:100%;
+
+    background:#222;
+    color:white;
+
+    border:1px solid #444;
+    border-radius:11px;
+
+    padding:14px;
+
+    outline:none;
+
+    font-family:tahoma;
+}
+
+.login-button{
+    width:100%;
+
+    margin-top:22px;
+
+    padding:14px;
+
+    border:0;
+    border-radius:12px;
+
+    background:white;
+    color:black;
+
+    font-family:tahoma;
+    font-weight:bold;
+    font-size:15px;
+
+    cursor:pointer;
+}
+
+.error{
+    display:none;
+
+    margin-top:15px;
+
+    background:#351818;
+    border:1px solid #5a2525;
+
+    color:#ffaaaa;
+
+    padding:12px;
+
+    border-radius:11px;
+
+    font-size:12px;
+
+    text-align:center;
+}
+
+.home{
+    display:block;
+
+    text-align:center;
+
+    margin-top:20px;
+
+    color:#888;
+
+    text-decoration:none;
+
+    font-size:12px;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="login-box">
+
+
+<div class="logo">
+👻
+</div>
+
+
+<h1>
+Ghost Site Builder
+</h1>
+
+
+<p class="subtitle">
+ورود به پنل مدیریت
+<br>
+فقط مدیر سایت باید وارد شود.
+</p>
+
+
+<form id="loginForm">
+
+
+<label for="username">
+نام کاربری
+</label>
+
+<input
+id="username"
+type="text"
+placeholder="نام کاربری"
+autocomplete="username"
+required>
+
+
+<label for="password">
+رمز عبور
+</label>
+
+<input
+id="password"
+type="password"
+placeholder="رمز عبور"
+autocomplete="current-password"
+required>
+
+
+<button
+class="login-button"
+type="submit">
+
+🔐 ورود به پنل
+
+</button>
+
+
+<div
+class="error"
+id="error">
+
+❌ نام کاربری یا رمز عبور اشتباه است.
+
+</div>
+
+
+</form>
+
+
+<a
+class="home"
+href="index.html">
+
+← بازگشت به صفحه اصلی
+
+</a>
+
+
+</div>
+
+
+<script>
+
+/*
+اطلاعات تستی مدیر
+
+بعداً این بخش را به سیستم ورود واقعی
+و سرور متصل می‌کنیم.
+*/
+
+const ADMIN_USERNAME =
+"admin";
+
+const ADMIN_PASSWORD =
+"123456";
+
+
+document
+.getElementById("loginForm")
+.addEventListener("submit", function(event){
+
+event.preventDefault();
+
+
+const username =
+document
+.getElementById("username")
+.value
+.trim();
+
+
+const password =
+document
+.getElementById("password")
+.value;
+
+
+const error =
+document.getElementById("error");
+
+
+if(
+username === ADMIN_USERNAME &&
+password === ADMIN_PASSWORD
+){
+
+/*
+ثبت ورود مدیر
+*/
+
+sessionStorage.setItem(
+"ghost_admin_logged_in",
+"true"
+);
+
+
+/*
+رفتن به پنل
+*/
+
+window.location.href =
+"dashboard.html";
+
+}
+
+else{
+
+error.style.display =
+"block";
+
+}
+
+});
+
+</script>
+
+
+</body>
+
+</html>
