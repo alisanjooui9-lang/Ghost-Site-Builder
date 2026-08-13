@@ -1,40 +1,35 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>طراحی سایت | Ghost Site Builder</title>
 
 <style>
-
 *{
     box-sizing:border-box;
 }
 
 body{
     margin:0;
-    background:#070707;
-    color:white;
+    background:#080808;
+    color:#fff;
     font-family:tahoma,Arial,sans-serif;
 }
 
 .header{
     height:70px;
-    background:#101010;
-    border-bottom:1px solid #292929;
-
+    background:#111;
+    border-bottom:1px solid #333;
     display:flex;
     align-items:center;
     justify-content:space-between;
-
     padding:0 15px;
 }
 
 .logo{
-    font-weight:bold;
     font-size:20px;
+    font-weight:bold;
 }
 
 .back{
@@ -47,29 +42,24 @@ body{
 }
 
 .layout{
-    max-width:1100px;
+    max-width:1150px;
     margin:auto;
+    padding:15px;
 
     display:grid;
     grid-template-columns:300px 1fr;
-
     gap:15px;
-
-    padding:15px;
 }
 
 .panel{
-    background:#121212;
-    border:1px solid #303030;
+    background:#151515;
+    border:1px solid #333;
     border-radius:18px;
     padding:18px;
-
-    height:max-content;
 }
 
 .panel h2{
     margin-top:0;
-    font-size:18px;
 }
 
 .group{
@@ -79,32 +69,25 @@ body{
 .group-title{
     color:#aaa;
     font-size:12px;
-    margin-bottom:8px;
+    margin-bottom:7px;
 }
 
-input[type="text"],
-input[type="number"],
-select{
+input[type="text"]{
     width:100%;
-
     background:#222;
     color:white;
-
     border:1px solid #444;
     border-radius:10px;
-
-    padding:11px;
-
+    padding:12px;
+    outline:none;
     font-family:tahoma;
 }
 
 input[type="color"]{
     width:100%;
-    height:45px;
-
+    height:42px;
     background:#222;
     border:1px solid #444;
-
     border-radius:10px;
     padding:3px;
 }
@@ -119,48 +102,74 @@ input[type="range"]{
     margin-top:4px;
 }
 
+.action{
+    width:100%;
+    margin-top:10px;
+    padding:13px;
+
+    border:0;
+    border-radius:11px;
+
+    background:#fff;
+    color:#000;
+
+    font-family:tahoma;
+    font-weight:bold;
+
+    cursor:pointer;
+}
+
+.secondary{
+    background:#252525;
+    color:#fff;
+    border:1px solid #444;
+}
+
 .preview-area{
-    background:#101010;
-    border:1px solid #303030;
+    background:#181818;
+    border:1px solid #333;
     border-radius:18px;
-
     padding:15px;
-
-    min-height:650px;
+    overflow:auto;
 }
 
 .preview-title{
-    color:#888;
+    color:#aaa;
     font-size:12px;
     margin-bottom:10px;
 }
 
 .website{
     width:100%;
-    min-height:580px;
-
+    min-height:600px;
+    overflow:hidden;
     border-radius:15px;
 
-    overflow:hidden;
+    background:#ffffff;
+    color:#111;
 
     transition:.2s;
 }
 
 .site-header{
-    padding:25px 20px;
+    padding:20px;
 
     display:flex;
     align-items:center;
     justify-content:space-between;
+
+    background:#f1f1f1;
+    color:#111;
 }
 
 .site-logo{
     font-weight:bold;
+    font-size:18px;
 }
 
 .site-nav{
     display:flex;
-    gap:8px;
+    gap:12px;
 }
 
 .site-nav span{
@@ -170,28 +179,32 @@ input[type="range"]{
 .hero{
     padding:70px 20px;
     text-align:center;
+    background:#fff;
+    color:#111;
 }
 
 .hero h1{
     margin:0 0 15px;
+    font-size:34px;
 }
 
 .hero p{
-    opacity:.7;
+    color:#666;
     line-height:1.9;
 }
 
 .main-button{
     display:inline-block;
-
     margin-top:15px;
 
     padding:13px 22px;
 
-    border-radius:11px;
+    background:#111;
+    color:#fff;
+
+    border-radius:12px;
 
     text-decoration:none;
-
     font-size:13px;
     font-weight:bold;
 }
@@ -202,20 +215,25 @@ input[type="range"]{
     gap:12px;
 
     padding:20px;
+
+    background:#fff;
 }
 
 .card{
     padding:20px;
 
-    border-radius:14px;
+    background:#f1f1f1;
+    color:#111;
+
+    border-radius:15px;
 
     text-align:center;
 
-    min-height:130px;
+    min-height:140px;
 }
 
 .card-icon{
-    font-size:30px;
+    font-size:32px;
 }
 
 .card h3{
@@ -224,25 +242,529 @@ input[type="range"]{
 
 .card p{
     font-size:11px;
-    opacity:.6;
+    color:#666;
 }
 
 .site-footer{
     padding:25px;
+
     text-align:center;
+
+    background:#f1f1f1;
+    color:#666;
+
     font-size:11px;
-    opacity:.6;
 }
 
-.action{
-    width:100%;
+@media(max-width:800px){
 
-    margin-top:10px;
+    .layout{
+        grid-template-columns:1fr;
+    }
 
-    padding:13px;
+    .cards{
+        grid-template-columns:1fr;
+    }
+}
+</style>
+</head>
 
-    border:0;
+<body>
 
-    border-radius:11px;
+<header class="header">
 
-    background:whiteq
+<div class="logo">
+👻 Ghost Site Builder
+</div>
+
+<a class="back" href="index.html">
+← خانه
+</a>
+
+</header>
+
+
+<div class="layout">
+
+
+<!-- پنل تنظیمات -->
+
+<aside class="panel">
+
+<h2>
+🎨 طراحی سایت
+</h2>
+
+
+<div class="group">
+
+<div class="group-title">
+نام سایت
+</div>
+
+<input
+id="siteName"
+type="text"
+value="سایت من"
+oninput="updateDesign()">
+
+</div>
+
+
+<div class="group">
+
+<div class="group-title">
+رنگ پس‌زمینه
+</div>
+
+<input
+id="bgColor"
+type="color"
+value="#ffffff"
+oninput="updateDesign()">
+
+</div>
+
+
+<div class="group">
+
+<div class="group-title">
+رنگ هدر
+</div>
+
+<input
+id="headerColor"
+type="color"
+value="#f1f1f1"
+oninput="updateDesign()">
+
+</div>
+
+
+<div class="group">
+
+<div class="group-title">
+رنگ کارت‌ها
+</div>
+
+<input
+id="cardColor"
+type="color"
+value="#eeeeee"
+oninput="updateDesign()">
+
+</div>
+
+
+<div class="group">
+
+<div class="group-title">
+رنگ اصلی
+</div>
+
+<input
+id="primaryColor"
+type="color"
+value="#111111"
+oninput="updateDesign()">
+
+</div>
+
+
+<div class="group">
+
+<div class="group-title">
+رنگ متن
+</div>
+
+<input
+id="textColor"
+type="color"
+value="#111111"
+oninput="updateDesign()">
+
+</div>
+
+
+<div class="group">
+
+<div class="group-title">
+اندازه عنوان
+</div>
+
+<input
+id="titleSize"
+type="range"
+min="20"
+max="60"
+value="34"
+oninput="updateDesign()">
+
+<div class="value" id="titleValue">
+34px
+</div>
+
+</div>
+
+
+<div class="group">
+
+<div class="group-title">
+گردی گوشه‌ها
+</div>
+
+<input
+id="radius"
+type="range"
+min="0"
+max="35"
+value="15"
+oninput="updateDesign()">
+
+<div class="value" id="radiusValue">
+15px
+</div>
+
+</div>
+
+
+<div class="group">
+
+<div class="group-title">
+متن دکمه
+</div>
+
+<input
+id="buttonText"
+type="text"
+value="شروع کنید"
+oninput="updateDesign()">
+
+</div>
+
+
+<button
+class="action"
+onclick="saveDesign()">
+
+💾 ذخیره طراحی
+
+</button>
+
+
+<button
+class="action secondary"
+onclick="resetDesign()">
+
+🔄 بازنشانی
+
+</button>
+
+
+</aside>
+
+
+<!-- پیش نمایش -->
+
+<main class="preview-area">
+
+<div class="preview-title">
+👀 پیش‌نمایش زنده
+</div>
+
+
+<div
+class="website"
+id="website">
+
+
+<header
+class="site-header"
+id="siteHeader">
+
+<div
+class="site-logo"
+id="previewLogo">
+
+سایت من
+
+</div>
+
+<div class="site-nav">
+
+<span>خانه</span>
+<span>درباره</span>
+<span>تماس</span>
+
+</div>
+
+</header>
+
+
+<section
+class="hero"
+id="hero">
+
+<h1
+id="previewTitle">
+
+سایت من
+
+</h1>
+
+<p>
+این متن نمونه سایت شماست.
+</p>
+
+<a
+class="main-button"
+id="previewButton">
+
+شروع کنید
+
+</a>
+
+</section>
+
+
+<section
+class="cards"
+id="cards">
+
+
+<div class="card">
+
+<div class="card-icon">
+🚀
+</div>
+
+<h3>
+سریع
+</h3>
+
+<p>
+سایت سریع و کاربردی
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-icon">
+🎨
+</div>
+
+<h3>
+زیبا
+</h3>
+
+<p>
+طراحی مطابق سلیقه شما
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-icon">
+📱
+</div>
+
+<h3>
+موبایلی
+</h3>
+
+<p>
+مناسب گوشی و تبلت
+</p>
+
+</div>
+
+
+</section>
+
+
+<footer
+class="site-footer"
+id="footer">
+
+ساخته شده با Ghost Site Builder 👻
+
+</footer>
+
+
+</div>
+
+</main>
+
+</div>
+
+
+<script>
+
+const website =
+document.getElementById("website");
+
+const header =
+document.getElementById("siteHeader");
+
+const hero =
+document.getElementById("hero");
+
+const cards =
+document.querySelectorAll(".card");
+
+const footer =
+document.getElementById("footer");
+
+const title =
+document.getElementById("previewTitle");
+
+const logo =
+document.getElementById("previewLogo");
+
+const button =
+document.getElementById("previewButton");
+
+
+function updateDesign(){
+
+const siteName =
+document.getElementById("siteName").value;
+
+const bg =
+document.getElementById("bgColor").value;
+
+const headerColor =
+document.getElementById("headerColor").value;
+
+const cardColor =
+document.getElementById("cardColor").value;
+
+const primary =
+document.getElementById("primaryColor").value;
+
+const text =
+document.getElementById("textColor").value;
+
+const titleSize =
+document.getElementById("titleSize").value;
+
+const radius =
+document.getElementById("radius").value;
+
+const buttonText =
+document.getElementById("buttonText").value;
+
+
+/* نام */
+
+logo.innerText =
+siteName;
+
+title.innerText =
+siteName;
+
+button.innerText =
+buttonText;
+
+
+/* رنگ پس زمینه */
+
+website.style.background =
+bg;
+
+hero.style.background =
+bg;
+
+hero.style.color =
+text;
+
+cards.forEach(function(card){
+
+card.style.background =
+cardColor;
+
+card.style.color =
+text;
+
+card.style.borderRadius =
+radius + "px";
+
+});
+
+
+/* هدر */
+
+header.style.background =
+headerColor;
+
+header.style.color =
+text;
+
+
+/* فوتر */
+
+footer.style.background =
+headerColor;
+
+footer.style.color =
+text;
+
+
+/* دکمه */
+
+button.style.background =
+primary;
+
+button.style.color =
+getContrastColor(primary);
+
+button.style.borderRadius =
+radius + "px";
+
+
+/* عنوان */
+
+title.style.fontSize =
+titleSize + "px";
+
+title.style.color =
+text;
+
+
+/* گردی سایت */
+
+website.style.borderRadius =
+radius + "px";
+
+
+document.getElementById("titleValue")
+.innerText =
+titleSize + "px";
+
+
+document.getElementById("radiusValue")
+.innerText =
+radius + "px";
+
+}
+
+
+/* انتخاب رنگ مناسب برای متن */
+
+function getContrastColor(hex){
+
+hex =
+hex.replace("#","");
+
+const r =
+parseInt(hex.substring(0,2),16);
+
+const g =
+parseInt(hex.substring(2,4),16);
+
+const b =
+parseInt(hex.substring(4,6),16
