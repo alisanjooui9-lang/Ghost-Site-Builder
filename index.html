@@ -15,9 +15,9 @@
 
 body{
     margin:0;
-    font-family:tahoma,Arial,sans-serif;
     background:#070707;
     color:white;
+    font-family:tahoma,Arial,sans-serif;
 }
 
 .header{
@@ -48,17 +48,22 @@ body{
 .nav a{
     color:white;
     text-decoration:none;
+
     background:#202020;
     border:1px solid #383838;
+
     padding:9px 11px;
     border-radius:10px;
+
     font-size:12px;
 }
 
 .hero{
     max-width:850px;
     margin:auto;
-    padding:70px 20px 45px;
+
+    padding:65px 20px 45px;
+
     text-align:center;
 }
 
@@ -77,21 +82,33 @@ body{
 
 .hero p{
     color:#999;
+
     line-height:2;
+
     max-width:600px;
+
     margin:0 auto 25px;
+}
+
+.buttons{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    flex-wrap:wrap;
 }
 
 .main-button{
     display:inline-block;
 
-    background:#fff;
+    background:white;
     color:#000;
 
-    padding:14px 25px;
+    padding:14px 22px;
+
     border-radius:13px;
 
     text-decoration:none;
+
     font-weight:bold;
 
     transition:.2s;
@@ -101,9 +118,17 @@ body{
     transform:translateY(-3px);
 }
 
+.secondary-button{
+    background:#202020;
+    color:white;
+
+    border:1px solid #444;
+}
+
 .section{
     max-width:850px;
     margin:auto;
+
     padding:25px 20px 45px;
 }
 
@@ -114,15 +139,22 @@ body{
 
 .cards{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+
+    grid-template-columns:
+    repeat(3,1fr);
+
     gap:14px;
 }
 
 .card{
     background:#131313;
+
     border:1px solid #2d2d2d;
+
     border-radius:18px;
+
     padding:22px 15px;
+
     text-align:center;
 }
 
@@ -136,20 +168,26 @@ body{
 
 .card p{
     color:#888;
+
     font-size:12px;
+
     line-height:1.8;
 }
 
 .steps{
     display:flex;
     flex-direction:column;
+
     gap:12px;
 }
 
 .step{
     background:#121212;
+
     border:1px solid #2b2b2b;
+
     border-radius:15px;
+
     padding:16px;
 }
 
@@ -163,6 +201,7 @@ body{
     justify-content:center;
 
     background:#252525;
+
     border-radius:50%;
 
     margin-left:8px;
@@ -170,17 +209,17 @@ body{
 
 .footer{
     text-align:center;
+
     color:#555;
+
     border-top:1px solid #222;
+
     padding:30px 15px;
+
     font-size:12px;
 }
 
 @media(max-width:650px){
-
-    .hero{
-        padding-top:45px;
-    }
 
     .hero h1{
         font-size:27px;
@@ -200,7 +239,9 @@ body{
 
 </head>
 
+
 <body>
+
 
 <header class="header">
 
@@ -214,8 +255,8 @@ body{
 خانه
 </a>
 
-<a href="request.html">
-ثبت درخواست
+<a href="tracking.html">
+پیگیری سفارش
 </a>
 
 </nav>
@@ -223,7 +264,9 @@ body{
 </header>
 
 
+
 <main>
+
 
 <section class="hero">
 
@@ -231,32 +274,57 @@ body{
 🌐
 </div>
 
+
 <h1>
-سایت خودت را <span>بدون کدنویسی</span> بساز
+سایت خودت را
+<span>
+بدون کدنویسی
+</span>
+بساز
 </h1>
 
+
 <p>
-ایده و امکانات سایتت را به ما بگو؛
-ما طراحی و ساخت سایت را برایت انجام می‌دهیم.
-ساده، سریع و مناسب موبایل.
+ظاهر و امکانات سایتت را خودت انتخاب کن،
+طراحی را بساز و سپس برای ما ارسال کن
+تا ساخت سایتت را شروع کنیم.
 </p>
+
+
+<div class="buttons">
 
 <a
 class="main-button"
-href="request.html">
-🚀 شروع ثبت درخواست
+href="designer.html">
+
+🎨 طراحی سایت
+
 </a>
 
+
+<a
+class="main-button secondary-button"
+href="request.html">
+
+📝 ثبت درخواست
+
+</a>
+
+</div>
+
 </section>
+
 
 
 <section class="section">
 
 <h2 class="section-title">
-✨ خدمات ما
+✨ امکانات
 </h2>
 
+
 <div class="cards">
+
 
 <div class="card">
 
@@ -265,14 +333,33 @@ href="request.html">
 </div>
 
 <h3>
-طراحی اختصاصی
+طراحی بدون کدنویسی
 </h3>
 
 <p>
-ظاهر سایت بر اساس سلیقه و نیاز پروژه طراحی می‌شود.
+رنگ‌ها، اندازه‌ها و ظاهر بخش‌های سایتت را انتخاب کن.
 </p>
 
 </div>
+
+
+
+<div class="card">
+
+<div class="card-icon">
+👀
+</div>
+
+<h3>
+پیش‌نمایش زنده
+</h3>
+
+<p>
+قبل از ارسال، نتیجه طراحی خودت را ببین.
+</p>
+
+</div>
+
 
 
 <div class="card">
@@ -282,14 +369,51 @@ href="request.html">
 </div>
 
 <h3>
-مناسب موبایل
+طراحی موبایلی
 </h3>
 
 <p>
-سایت‌ها برای نمایش مناسب روی گوشی و تبلت طراحی می‌شوند.
+سایت برای گوشی و تبلت هم طراحی می‌شود.
 </p>
 
 </div>
+
+
+
+<div class="card">
+
+<div class="card-icon">
+📦
+</div>
+
+<h3>
+ثبت سفارش
+</h3>
+
+<p>
+بعد از طراحی، درخواست ساخت سایت را ارسال کن.
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+<div class="card-icon">
+🔎
+</div>
+
+<h3>
+پیگیری سفارش
+</h3>
+
+<p>
+با کد رهگیری وضعیت سفارش خودت را ببین.
+</p>
+
+</div>
+
 
 
 <div class="card">
@@ -299,51 +423,80 @@ href="request.html">
 </div>
 
 <h3>
-سریع و ساده
+ساخت اختصاصی
 </h3>
 
 <p>
-هدف ما ساخت سایت‌هایی ساده، مرتب و کاربردی است.
+طراحی نهایی بر اساس نیاز پروژه انجام می‌شود.
 </p>
 
 </div>
 
+
 </div>
 
 </section>
+
 
 
 <section class="section">
 
 <h2 class="section-title">
-🛠️ روند ساخت سایت
+🛠️ چطور کار می‌کند؟
 </h2>
+
 
 <div class="steps">
 
-<div class="step">
-<span class="step-number">۱</span>
-ایده و مشخصات سایتت را ارسال می‌کنی.
-</div>
 
 <div class="step">
-<span class="step-number">۲</span>
-درخواستت بررسی می‌شود.
+
+<span class="step-number">
+۱
+</span>
+
+طراحی سایتت را در طراح آنلاین انجام بده.
+
 </div>
 
-<div class="step">
-<span class="step-number">۳</span>
-طراحی و ساخت سایت شروع می‌شود.
-</div>
 
 <div class="step">
-<span class="step-number">۴</span>
-نسخه آماده سایت به تو تحویل داده می‌شود.
+
+<span class="step-number">
+۲
+</span>
+
+اطلاعات تماس و توضیحات پروژه را وارد کن.
+
 </div>
+
+
+<div class="step">
+
+<span class="step-number">
+۳
+</span>
+
+درخواست را ارسال کن و کد رهگیری بگیر.
+
+</div>
+
+
+<div class="step">
+
+<span class="step-number">
+۴
+</span>
+
+با کد رهگیری وضعیت سفارش را بررسی کن.
+
+</div>
+
 
 </div>
 
 </section>
+
 
 
 <section class="hero">
@@ -352,19 +505,38 @@ href="request.html">
 آماده‌ای شروع کنیم؟ 👻
 </h2>
 
+
 <p>
-همین حالا درخواست ساخت سایتت را ثبت کن.
+طراحی سایتت را همین حالا شروع کن.
 </p>
+
+
+<div class="buttons">
 
 <a
 class="main-button"
-href="request.html">
-📝 ثبت درخواست ساخت سایت
+href="designer.html">
+
+🎨 شروع طراحی
+
 </a>
+
+
+<a
+class="main-button secondary-button"
+href="tracking.html">
+
+🔎 پیگیری سفارش
+
+</a>
+
+</div>
 
 </section>
 
+
 </main>
+
 
 
 <footer class="footer">
@@ -381,6 +553,7 @@ href="request.html">
 
 </footer>
 
+
 </body>
 
-  </html>
+</html>
