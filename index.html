@@ -426,4 +426,132 @@ onclick="showAbout()">
 
 
 <div
-class="
+class="overlay"
+id="overlay"
+onclick="closeMenu()">
+</div>
+
+
+
+<section class="hero">
+
+<div class="content">
+
+
+<div class="ghost">
+👻
+</div>
+
+
+<h1>
+Ghost <span>Site Builder</span>
+</h1>
+
+
+<p class="description">
+
+بدون نیاز به کدنویسی،
+ایده سایتت رو طراحی کن
+و برای ساخت ارسال کن.
+
+</p>
+
+
+<a
+href="designer.html"
+class="main-button">
+
+🎨 شروع طراحی سایت
+
+</a>
+
+
+
+<div class="cards">
+
+
+<div class="card">
+
+<strong>
+🎨 طراحی
+</strong>
+
+سایتت رو خودت طراحی کن.
+
+</div>
+
+
+<div class="card">
+
+<strong>
+📝 سفارش
+</strong>
+
+درخواست ساخت سایت ثبت کن.
+
+</div>
+
+
+<div class="card">
+
+<strong>
+👑 VIP Ghost
+</strong>
+
+امکانات حرفه‌ای و طلایی.
+
+</div>
+
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<script>
+
+const menu =
+document.getElementById("menu");
+
+const overlay =
+document.getElementById("overlay");
+
+
+function openMenu(){
+
+    menu.classList.add("active");
+
+    overlay.classList.add("active");
+
+}
+
+
+function closeMenu(){
+
+    menu.classList.remove("active");
+
+    overlay.classList.remove("active");
+
+}
+
+
+function showAbout(){
+
+    closeMenu();
+
+    alert(
+        "👻 Ghost Site Builder\n\nساخت سایت بدون دردسر."
+    );
+
+}
+
+</script>
+
+
+</body>
+
+</html>
