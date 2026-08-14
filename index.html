@@ -3,7 +3,10 @@
 
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta
+name="viewport"
+content="width=device-width,initial-scale=1.0">
 
 <title>Ghost Site Builder</title>
 
@@ -15,126 +18,232 @@
 
 body{
     margin:0;
-    background:#070707;
-    color:white;
+
+    background:#080808;
+    color:#fff;
+
     font-family:tahoma,Arial,sans-serif;
 }
 
-.header{
-    position:sticky;
-    top:0;
-    z-index:10;
+header{
+    height:70px;
 
-    background:#101010;
+    background:#111;
+
     border-bottom:1px solid #292929;
 
-    padding:15px;
-
     display:flex;
+
     align-items:center;
+
     justify-content:space-between;
+
+    padding:0 15px;
 }
 
 .logo{
-    font-size:21px;
+    font-size:19px;
     font-weight:bold;
 }
 
-.nav{
-    display:flex;
-    gap:7px;
+.menu-btn{
+    width:44px;
+    height:44px;
+
+    border:1px solid #444;
+
+    border-radius:11px;
+
+    background:#222;
+
+    color:#fff;
+
+    font-size:23px;
+
+    cursor:pointer;
 }
 
-.nav a{
-    color:white;
+
+/* منوی کناری */
+
+.menu{
+    position:fixed;
+
+    top:0;
+    right:-310px;
+
+    width:290px;
+    height:100vh;
+
+    background:#111;
+
+    border-left:1px solid #333;
+
+    z-index:100;
+
+    padding:25px 15px;
+
+    transition:.3s;
+
+    overflow-y:auto;
+}
+
+.menu.active{
+    right:0;
+}
+
+.menu-title{
+    font-size:20px;
+    font-weight:bold;
+
+    margin-bottom:25px;
+}
+
+.close{
+    position:absolute;
+
+    left:15px;
+    top:15px;
+
+    background:#222;
+
+    border:1px solid #444;
+
+    color:#fff;
+
+    width:38px;
+    height:38px;
+
+    border-radius:9px;
+
+    cursor:pointer;
+
+    font-size:20px;
+}
+
+.menu-item{
+    display:block;
+
+    width:100%;
+
+    padding:14px;
+
+    margin-bottom:9px;
+
+    border-radius:11px;
+
+    background:#1b1b1b;
+
+    border:1px solid #303030;
+
+    color:#fff;
+
     text-decoration:none;
 
-    background:#202020;
-    border:1px solid #383838;
+    font-size:13px;
 
-    padding:9px 11px;
-    border-radius:10px;
-
-    font-size:12px;
+    transition:.2s;
 }
+
+.menu-item:hover{
+    background:#252525;
+
+    transform:translateX(-3px);
+}
+
+
+/* VIP */
+
+.vip{
+    border-color:#8d6a00;
+
+    background:
+    linear-gradient(
+        135deg,
+        #211b08,
+        #171717
+    );
+
+    color:#ffd700;
+}
+
+.vip:hover{
+    border-color:#ffd700;
+
+    box-shadow:
+    0 0 15px
+    rgba(255,215,0,.15);
+}
+
+
+/* صفحه */
 
 .hero{
-    max-width:850px;
-    margin:auto;
+    min-height:calc(100vh - 70px);
 
-    padding:65px 20px 45px;
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
 
     text-align:center;
+
+    padding:30px 15px;
 }
 
-.hero-icon{
-    font-size:65px;
+.content{
+    width:100%;
+
+    max-width:650px;
 }
 
-.hero h1{
-    font-size:34px;
-    margin:15px 0;
+.ghost{
+    font-size:75px;
+
+    margin-bottom:10px;
+
+    filter:
+    drop-shadow(
+        0 0 15px
+        rgba(255,255,255,.15)
+    );
 }
 
-.hero h1 span{
+h1{
+    font-size:36px;
+
+    margin:10px 0;
+}
+
+h1 span{
     color:#8b8bff;
 }
 
-.hero p{
+.description{
     color:#999;
 
     line-height:2;
 
-    max-width:600px;
-
-    margin:0 auto 25px;
-}
-
-.buttons{
-    display:flex;
-    justify-content:center;
-    gap:10px;
-    flex-wrap:wrap;
+    font-size:13px;
 }
 
 .main-button{
     display:inline-block;
 
-    background:white;
-    color:#000;
+    margin-top:22px;
 
-    padding:14px 22px;
+    padding:14px 25px;
+
+    background:#fff;
+
+    color:#000;
 
     border-radius:13px;
 
     text-decoration:none;
 
     font-weight:bold;
-
-    transition:.2s;
-}
-
-.main-button:hover{
-    transform:translateY(-3px);
-}
-
-.secondary-button{
-    background:#202020;
-    color:white;
-
-    border:1px solid #444;
-}
-
-.section{
-    max-width:850px;
-    margin:auto;
-
-    padding:25px 20px 45px;
-}
-
-.section-title{
-    text-align:center;
-    margin-bottom:25px;
 }
 
 .cards{
@@ -143,94 +252,60 @@ body{
     grid-template-columns:
     repeat(3,1fr);
 
-    gap:14px;
+    gap:10px;
+
+    margin-top:30px;
 }
 
 .card{
-    background:#131313;
+    padding:18px 10px;
 
-    border:1px solid #2d2d2d;
-
-    border-radius:18px;
-
-    padding:22px 15px;
-
-    text-align:center;
-}
-
-.card-icon{
-    font-size:38px;
-}
-
-.card h3{
-    font-size:16px;
-}
-
-.card p{
-    color:#888;
-
-    font-size:12px;
-
-    line-height:1.8;
-}
-
-.steps{
-    display:flex;
-    flex-direction:column;
-
-    gap:12px;
-}
-
-.step{
     background:#121212;
 
-    border:1px solid #2b2b2b;
+    border:1px solid #292929;
 
     border-radius:15px;
 
-    padding:16px;
+    color:#aaa;
+
+    font-size:11px;
 }
 
-.step-number{
-    display:inline-flex;
+.card strong{
+    display:block;
 
-    width:32px;
-    height:32px;
+    color:#fff;
 
-    align-items:center;
-    justify-content:center;
+    font-size:14px;
 
-    background:#252525;
-
-    border-radius:50%;
-
-    margin-left:8px;
+    margin-bottom:7px;
 }
 
-.footer{
-    text-align:center;
+.overlay{
+    position:fixed;
 
-    color:#555;
+    inset:0;
 
-    border-top:1px solid #222;
+    background:rgba(0,0,0,.6);
 
-    padding:30px 15px;
+    z-index:90;
 
-    font-size:12px;
+    display:none;
 }
 
-@media(max-width:650px){
+.overlay.active{
+    display:block;
+}
 
-    .hero h1{
-        font-size:27px;
-    }
+
+@media(max-width:600px){
 
     .cards{
         grid-template-columns:1fr;
     }
 
-    .nav a{
-        padding:8px;
+    h1{
+        font-size:30px;
     }
 
 }
@@ -243,59 +318,58 @@ body{
 <body>
 
 
-<header class="header">
+<header>
 
 <div class="logo">
 👻 Ghost Site Builder
 </div>
 
-<nav class="nav">
+<button
+class="menu-btn"
+onclick="openMenu()">
 
-<a href="index.html">
-خانه
-</a>
+☰
 
-<a href="tracking.html">
-پیگیری سفارش
-</a>
-
-</nav>
+</button>
 
 </header>
 
 
 
-<main>
+<!-- منو -->
+
+<div
+class="menu"
+id="menu">
 
 
-<section class="hero">
+<button
+class="close"
+onclick="closeMenu()">
 
-<div class="hero-icon">
-🌐
+×
+</button>
+
+
+<div class="menu-title">
+
+👻 منوی Ghost
+
 </div>
 
 
-<h1>
-سایت خودت را
-<span>
-بدون کدنویسی
-</span>
-بساز
-</h1>
+<a
+href="index.html"
+class="menu-item">
 
+🏠 صفحه اصلی
 
-<p>
-ظاهر و امکانات سایتت را خودت انتخاب کن،
-طراحی را بساز و سپس برای ما ارسال کن
-تا ساخت سایتت را شروع کنیم.
-</p>
+</a>
 
-
-<div class="buttons">
 
 <a
-class="main-button"
-href="designer.html">
+href="designer.html"
+class="menu-item">
 
 🎨 طراحی سایت
 
@@ -303,257 +377,53 @@ href="designer.html">
 
 
 <a
-class="main-button secondary-button"
-href="request.html">
+href="design-request.html"
+class="menu-item">
 
-📝 ثبت درخواست
-
-</a>
-
-</div>
-
-</section>
-
-
-
-<section class="section">
-
-<h2 class="section-title">
-✨ امکانات
-</h2>
-
-
-<div class="cards">
-
-
-<div class="card">
-
-<div class="card-icon">
-🎨
-</div>
-
-<h3>
-طراحی بدون کدنویسی
-</h3>
-
-<p>
-رنگ‌ها، اندازه‌ها و ظاهر بخش‌های سایتت را انتخاب کن.
-</p>
-
-</div>
-
-
-
-<div class="card">
-
-<div class="card-icon">
-👀
-</div>
-
-<h3>
-پیش‌نمایش زنده
-</h3>
-
-<p>
-قبل از ارسال، نتیجه طراحی خودت را ببین.
-</p>
-
-</div>
-
-
-
-<div class="card">
-
-<div class="card-icon">
-📱
-</div>
-
-<h3>
-طراحی موبایلی
-</h3>
-
-<p>
-سایت برای گوشی و تبلت هم طراحی می‌شود.
-</p>
-
-</div>
-
-
-
-<div class="card">
-
-<div class="card-icon">
-📦
-</div>
-
-<h3>
-ثبت سفارش
-</h3>
-
-<p>
-بعد از طراحی، درخواست ساخت سایت را ارسال کن.
-</p>
-
-</div>
-
-
-
-<div class="card">
-
-<div class="card-icon">
-🔎
-</div>
-
-<h3>
-پیگیری سفارش
-</h3>
-
-<p>
-با کد رهگیری وضعیت سفارش خودت را ببین.
-</p>
-
-</div>
-
-
-
-<div class="card">
-
-<div class="card-icon">
-⚡
-</div>
-
-<h3>
-ساخت اختصاصی
-</h3>
-
-<p>
-طراحی نهایی بر اساس نیاز پروژه انجام می‌شود.
-</p>
-
-</div>
-
-
-</div>
-
-</section>
-
-
-
-<section class="section">
-
-<h2 class="section-title">
-🛠️ چطور کار می‌کند؟
-</h2>
-
-
-<div class="steps">
-
-
-<div class="step">
-
-<span class="step-number">
-۱
-</span>
-
-طراحی سایتت را در طراح آنلاین انجام بده.
-
-</div>
-
-
-<div class="step">
-
-<span class="step-number">
-۲
-</span>
-
-اطلاعات تماس و توضیحات پروژه را وارد کن.
-
-</div>
-
-
-<div class="step">
-
-<span class="step-number">
-۳
-</span>
-
-درخواست را ارسال کن و کد رهگیری بگیر.
-
-</div>
-
-
-<div class="step">
-
-<span class="step-number">
-۴
-</span>
-
-با کد رهگیری وضعیت سفارش را بررسی کن.
-
-</div>
-
-
-</div>
-
-</section>
-
-
-
-<section class="hero">
-
-<h2>
-آماده‌ای شروع کنیم؟ 👻
-</h2>
-
-
-<p>
-طراحی سایتت را همین حالا شروع کن.
-</p>
-
-
-<div class="buttons">
-
-<a
-class="main-button"
-href="designer.html">
-
-🎨 شروع طراحی
+📝 ثبت درخواست ساخت
 
 </a>
 
 
 <a
-class="main-button secondary-button"
-href="tracking.html">
+href="tracking.html"
+class="menu-item">
 
-🔎 پیگیری سفارش
+🔎 پیگیری درخواست
 
 </a>
 
+
+<a
+href="vip.html"
+class="menu-item vip">
+
+👑 VIP Ghost
+
+</a>
+
+
+<a
+href="settings.html"
+class="menu-item">
+
+⚙️ تنظیمات
+
+</a>
+
+
+<a
+href="#"
+class="menu-item"
+onclick="showAbout()">
+
+ℹ️ درباره ما
+
+</a>
+
+
 </div>
 
-</section>
 
-
-</main>
-
-
-
-<footer class="footer">
-
-👻 Ghost Site Builder
-
-<br><br>
-
-ساخته شده توسط GHOST ACADEMY
-
-<br><br>
-
-© 2026
-
-</footer>
-
-
-</body>
-
-</html>
+<div
+class="
