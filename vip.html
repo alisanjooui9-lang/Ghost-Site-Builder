@@ -1,406 +1,260 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-
 <title>VIP Ghost</title>
 
 <style>
-
-*{
-    box-sizing:border-box;
-}
+*{box-sizing:border-box}
 
 body{
     margin:0;
     background:#080808;
-    color:#fff;
+    color:white;
     font-family:tahoma,Arial,sans-serif;
 }
 
-.header{
+header{
     height:70px;
-    padding:0 15px;
-
     background:#111;
-
-    border-bottom:1px solid #6f5610;
-
+    border-bottom:1px solid #6f5200;
     display:flex;
     align-items:center;
     justify-content:space-between;
+    padding:0 15px;
 }
 
 .logo{
     font-size:20px;
     font-weight:bold;
-}
-
-.vip-logo{
     color:#ffd700;
 }
 
 .back{
     color:white;
     text-decoration:none;
-
     background:#222;
-
     border:1px solid #444;
-
     padding:9px 13px;
-
     border-radius:10px;
 }
 
 .container{
-    max-width:950px;
-
+    max-width:900px;
     margin:auto;
-
-    padding:30px 15px 60px;
+    padding:30px 15px;
 }
 
 .hero{
     text-align:center;
-
-    padding:35px 15px;
 }
 
 .crown{
     font-size:70px;
-
-    filter:
-    drop-shadow(0 0 15px #ffd700);
+    filter:drop-shadow(0 0 15px #ffd700);
 }
 
 h1{
-    margin:15px 0 8px;
-
+    color:#ffd700;
     font-size:35px;
-
-    background:
-    linear-gradient(
-        90deg,
-        #9c6f00,
-        #ffd700,
-        #fff2a8,
-        #ffd700,
-        #9c6f00
-    );
-
-    -webkit-background-clip:text;
-    background-clip:text;
-
-    color:transparent;
 }
 
-.subtitle{
-    color:#aaa;
-
+.description{
+    color:#999;
     line-height:2;
-
-    font-size:13px;
 }
 
 .vip-card{
-    position:relative;
-
+    max-width:600px;
     margin:25px auto;
-
-    max-width:650px;
-
-    padding:28px;
-
-    border-radius:22px;
-
-    background:
-    linear-gradient(
-        145deg,
-        #161616,
-        #241d0a,
-        #121212
-    );
-
+    padding:25px;
+    border-radius:20px;
     border:1px solid #b88a00;
-
-    box-shadow:
-    0 0 35px rgba(255,215,0,.12);
-}
-
-.vip-card::before{
-    content:"";
-
-    position:absolute;
-
-    inset:0;
-
-    border-radius:22px;
-
-    pointer-events:none;
-
-    background:
-    linear-gradient(
-        120deg,
-        transparent,
-        rgba(255,215,0,.08),
-        transparent
-    );
-}
-
-.price{
-    text-align:center;
-
-    color:#ffd700;
-
-    font-size:28px;
-
-    font-weight:bold;
-
-    margin:10px 0 20px;
+    background:linear-gradient(145deg,#171717,#241d08);
+    box-shadow:0 0 30px rgba(255,215,0,.15);
 }
 
 .activate{
     width:100%;
-
     padding:15px;
-
     border:0;
-
-    border-radius:13px;
-
-    background:
-    linear-gradient(
-        135deg,
-        #8c6200,
-        #ffd700,
-        #b78300
-    );
-
+    border-radius:12px;
+    background:linear-gradient(135deg,#9c7000,#ffd700,#a97800);
     color:#111;
-
     font-family:tahoma;
-
     font-weight:bold;
-
     cursor:pointer;
-
-    font-size:14px;
 }
 
 .status{
     display:none;
-
-    text-align:center;
-
     margin-top:15px;
-
     padding:12px;
-
-    border-radius:11px;
-
-    background:#2a2107;
-
-    border:1px solid #8d6b00;
-
+    border-radius:10px;
     color:#ffd700;
-}
-
-.section-title{
-    text-align:center;
-
-    margin:45px 0 20px;
+    background:#211b08;
+    border:1px solid #8d6b00;
 }
 
 .features{
     display:grid;
-
-    grid-template-columns:
-    repeat(3,1fr);
-
-    gap:13px;
+    grid-template-columns:repeat(3,1fr);
+    gap:12px;
+    margin-top:25px;
 }
 
 .feature{
-    position:relative;
-
-    background:#141414;
-
-    border:1px solid #333;
-
-    border-radius:17px;
-
+    background:#151515;
+    border:1px solid #755900;
+    border-radius:16px;
     padding:20px;
-
     min-height:150px;
-
-    transition:.2s;
-}
-
-.feature:hover{
-    transform:translateY(-3px);
-
-    border-color:#b88a00;
-}
-
-.feature.vip{
-    border-color:#8f6b00;
-
-    background:
-    linear-gradient(
-        145deg,
-        #151515,
-        #1d1808
-    );
-}
-
-.icon{
-    font-size:32px;
-
-    margin-bottom:10px;
 }
 
 .feature h3{
+    color:#ffd700;
     font-size:14px;
-
-    margin:5px 0 9px;
 }
 
 .feature p{
     color:#888;
-
     font-size:11px;
-
     line-height:1.8;
 }
 
-.badge{
-    position:absolute;
-
-    top:12px;
-    left:12px;
-
-    background:#ffd700;
-
-    color:#111;
-
-    font-size:9px;
-
-    padding:5px 7px;
-
-    border-radius:7px;
-
-    font-weight:bold;
-}
-
-.lock{
-    position:absolute;
-
-    top:12px;
-    left:12px;
-
-    font-size:18px;
-}
-
-.bottom{
-    text-align:center;
-
-    margin-top:45px;
-}
-
-.design-button{
-    display:inline-block;
-
-    padding:13px 20px;
-
-    border-radius:12px;
-
-    background:#222;
-
-    border:1px solid #444;
-
-    color:white;
-
-    text-decoration:none;
-}
-
 @media(max-width:700px){
-
     .features{
         grid-template-columns:1fr;
     }
-
-    h1{
-        font-size:29px;
-    }
 }
-
 </style>
-
 </head>
-
 
 <body>
 
+<header>
+<div class="logo">👻 VIP Ghost</div>
 
-<header class="header">
-
-<div class="logo">
-👻 <span class="vip-logo">VIP Ghost</span>
-</div>
-
-<a
-class="back"
-href="index.html">
-
+<a href="index.html" class="back">
 ← خانه
-
 </a>
-
 </header>
 
-
-<main class="container">
-
+<div class="container">
 
 <section class="hero">
 
-<div class="crown">
-👑
-</div>
+<div class="crown">👑</div>
 
-<h1>
-VIP Ghost
-</h1>
+<h1>VIP Ghost</h1>
 
-<p class="subtitle">
-نسخه ویژه و حرفه‌ای Ghost Site Builder
-<br>
-امکانات بیشتر، طراحی حرفه‌ای‌تر و بدون نام سازنده
+<p class="description">
+امکانات حرفه‌ای و ویژه Ghost Site Builder
 </p>
-
 
 <div class="vip-card">
 
-<div class="price">
-✨ VIP Ghost
-</div>
+<h2>✨ فعال‌سازی VIP Ghost</h2>
 
-<p class="subtitle">
-تمام امکانات ویژه طراحی سایت را فعال کن.
+<p class="description">
+با فعال شدن VIP، امکانات ویژه طراحی سایت باز می‌شوند.
 </p>
 
-<button
-class="activate"
-onclick="activateVIP()">
-
+<button class="activate" onclick="activateVIP()">
 👑 فعال‌سازی VIP Ghost
-
 </button>
 
+<div class="status" id="status">
+✅ VIP Ghost فعال است
+</div>
 
-<div
-class="status"
-id="status">
+</div>
+
+</section>
+
+<h2>👑 امکانات VIP</h2>
+
+<div class="features">
+
+<div class="feature">
+<h3>🎨 تم طلایی</h3>
+<p>ظاهر ویژه و طلایی برای طراحی سایت.</p>
+</div>
+
+<div class="feature">
+<h3>✨ افکت‌های ویژه</h3>
+<p>امکانات ظاهری بیشتر برای سایت.</p>
+</div>
+
+<div class="feature">
+<h3>🧩 بخش‌های حرفه‌ای</h3>
+<p>بخش‌های اختصاصی برای طراحی بهتر.</p>
+</div>
+
+<div class="feature">
+<h3>🖼️ تصاویر بیشتر</h3>
+<p>امکانات بیشتر برای استفاده از تصاویر.</p>
+</div>
+
+<div class="feature">
+<h3>📱 طراحی موبایل</h3>
+<p>کنترل بهتر طراحی در موبایل.</p>
+</div>
+
+<div class="feature">
+<h3>🧹 حذف نام سازنده</h3>
+<p>حذف عبارت ساخته شده توسط Ghost Site Builder.</p>
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+function activateVIP(){
+
+    localStorage.setItem(
+        "ghost_vip",
+        "true"
+    );
+
+    document.getElementById(
+        "status"
+    ).style.display = "block";
+
+    alert(
+        "👑 VIP Ghost با موفقیت فعال شد!"
+    );
+
+    setTimeout(function(){
+
+        window.location.href =
+        "designer.html";
+
+    },500);
+}
+
+
+function checkVIP(){
+
+    if(
+        localStorage.getItem("ghost_vip")
+        === "true"
+    ){
+
+        document.getElementById(
+            "status"
+        ).style.display = "block";
+
+    }
+
+}
+
+checkVIP();
+
+</script>
+
+</body>
+</html>
