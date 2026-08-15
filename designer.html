@@ -16,9 +16,18 @@
 body{
     margin:0;
     background:#080808;
-    color:#fff;
+    color:white;
     font-family:tahoma,Arial,sans-serif;
     transition:.3s;
+}
+
+body.vip{
+    background:
+    radial-gradient(
+        circle at top,
+        #3b2c00,
+        #080808 65%
+    );
 }
 
 header{
@@ -33,6 +42,10 @@ header{
     padding:0 15px;
 }
 
+body.vip header{
+    border-bottom-color:#ffd700;
+}
+
 .logo{
     font-weight:bold;
     font-size:18px;
@@ -41,12 +54,11 @@ header{
 .vip-badge{
     display:none;
 
-    margin-right:8px;
-
     background:#ffd700;
     color:#111;
 
     padding:5px 8px;
+    margin-right:8px;
 
     border-radius:7px;
 
@@ -54,7 +66,7 @@ header{
     font-weight:bold;
 }
 
-.vip-active .vip-badge{
+body.vip .vip-badge{
     display:inline-block;
 }
 
@@ -72,7 +84,7 @@ header{
 }
 
 .container{
-    max-width:1200px;
+    max-width:1100px;
 
     margin:auto;
 
@@ -95,11 +107,15 @@ header{
     padding:18px;
 }
 
-.control{
-    margin-top:17px;
+body.vip .controls{
+    border-color:#b88a00;
 }
 
-.control label{
+.control{
+    margin-top:16px;
+}
+
+label{
     display:block;
 
     color:#aaa;
@@ -127,7 +143,6 @@ input[type="text"]{
 
 input[type="color"]{
     width:100%;
-
     height:42px;
 
     background:#222;
@@ -144,7 +159,7 @@ input[type="range"]{
 .button{
     width:100%;
 
-    margin-top:10px;
+    margin-top:12px;
 
     padding:13px;
 
@@ -152,7 +167,7 @@ input[type="range"]{
 
     border-radius:10px;
 
-    background:#fff;
+    background:white;
 
     color:#000;
 
@@ -163,40 +178,34 @@ input[type="range"]{
     cursor:pointer;
 }
 
-.reset{
-    background:#252525;
-
-    color:white;
-
-    border:1px solid #444;
-}
-
-
-/* قابلیت VIP */
-
-.vip-option{
-    position:relative;
-
+.vip-feature{
     margin-top:15px;
 
     padding:15px;
 
     border-radius:13px;
 
+    border:1px solid #806000;
+
     background:#181818;
 
-    border:1px solid #765c00;
+    color:#ffd700;
 
     cursor:pointer;
-
-    color:#ffd700;
 }
 
-.vip-option .lock{
-    float:left;
+body.vip .vip-feature{
+    border-color:#ffd700;
+
+    background:
+    linear-gradient(
+        135deg,
+        #291f05,
+        #151515
+    );
 }
 
-.vip-option small{
+.vip-feature small{
     display:block;
 
     color:#888;
@@ -206,21 +215,8 @@ input[type="range"]{
     font-size:10px;
 }
 
-.vip-option.unlocked{
-    cursor:default;
-
-    background:
-    linear-gradient(
-        135deg,
-        #211b08,
-        #151515
-    );
-
-    border-color:#ffd700;
-}
-
 .preview-box{
-    background:#171717;
+    background:#151515;
 
     border:1px solid #333;
 
@@ -229,18 +225,8 @@ input[type="range"]{
     padding:15px;
 }
 
-.preview-label{
-    color:#999;
-
-    font-size:12px;
-
-    margin-bottom:10px;
-}
-
 .preview{
-    min-height:650px;
-
-    overflow:hidden;
+    min-height:600px;
 
     background:#fff;
 
@@ -248,82 +234,56 @@ input[type="range"]{
 
     border-radius:15px;
 
+    overflow:hidden;
+
     transition:.3s;
 }
 
 .preview-header{
     padding:20px;
 
+    background:#eee;
+
     display:flex;
 
     justify-content:space-between;
 
     align-items:center;
-
-    background:#eee;
-
-    transition:.3s;
 }
 
 .preview-logo{
     font-weight:bold;
-
-    font-size:18px;
-}
-
-.preview-nav{
-    display:flex;
-
-    gap:12px;
-}
-
-.preview-nav span{
-    font-size:11px;
 }
 
 .preview-hero{
-    padding:70px 20px;
-
     text-align:center;
+
+    padding:70px 20px;
 }
 
-.preview-hero h1{
-    margin:0 0 15px;
+.preview-title{
+    margin:0;
 
     font-size:34px;
-
-    color:#111;
-
-    transition:.3s;
-}
-
-.preview-hero p{
-    color:#666;
 }
 
 .preview-button{
     display:inline-block;
 
-    margin-top:15px;
+    margin-top:20px;
 
     padding:13px 22px;
 
     background:#111;
 
-    color:#fff;
+    color:white;
 
     border-radius:12px;
 
     text-decoration:none;
-
-    font-size:13px;
-
-    font-weight:bold;
-
-    transition:.3s;
 }
 
-.preview-cards{
+.cards{
     display:grid;
 
     grid-template-columns:
@@ -334,7 +294,7 @@ input[type="range"]{
     padding:20px;
 }
 
-.preview-card{
+.card{
     padding:20px;
 
     background:#eee;
@@ -342,24 +302,10 @@ input[type="range"]{
     border-radius:15px;
 
     text-align:center;
-
-    min-height:140px;
-
-    transition:.3s;
 }
 
-.preview-card h3{
-    font-size:14px;
-}
-
-.preview-card p{
-    font-size:11px;
-
-    color:#666;
-}
-
-.preview-footer{
-    padding:25px;
+.footer{
+    padding:20px;
 
     text-align:center;
 
@@ -368,38 +314,28 @@ input[type="range"]{
     color:#666;
 
     font-size:11px;
-
-    transition:.3s;
 }
 
-
-/* تم طلایی */
-
-body.vip-active{
-    background:
-    radial-gradient(
-        circle at top,
-        #241d07,
-        #080808 55%
-    );
-}
-
-.vip-active header{
-    border-bottom-color:#8d6b00;
-}
-
-.vip-active .controls{
-    border-color:#8d6b00;
-}
-
-.vip-active .preview{
+body.vip .preview{
     box-shadow:
     0 0 30px
-    rgba(255,215,0,.15);
+    rgba(255,215,0,.25);
 }
 
+body.vip .preview-button{
+    background:#d4af37;
+    color:#111;
+}
 
-/* موبایل */
+body.vip .card{
+    background:#f5df91;
+}
+
+body.vip .preview-header,
+body.vip .footer{
+    background:#d4af37;
+    color:#111;
+}
 
 @media(max-width:800px){
 
@@ -407,14 +343,15 @@ body.vip-active{
         grid-template-columns:1fr;
     }
 
-    .preview-cards{
+    .cards{
         grid-template-columns:1fr;
     }
+
 }
 
 </style>
-</head>
 
+</head>
 
 <body>
 
@@ -445,13 +382,9 @@ class="back">
 <div class="container">
 
 
-<!-- کنترل‌ها -->
-
 <div class="controls">
 
-<h2>
-🎨 طراحی سایت
-</h2>
+<h2>🎨 طراحی سایت</h2>
 
 
 <div class="control">
@@ -475,7 +408,7 @@ value="سایت من">
 </label>
 
 <input
-id="backgroundColor"
+id="background"
 type="color"
 value="#ffffff">
 
@@ -499,7 +432,7 @@ value="#eeeeee">
 <div class="control">
 
 <label>
-رنگ کارت‌ها
+رنگ کارت
 </label>
 
 <input
@@ -527,20 +460,6 @@ value="#111111">
 <div class="control">
 
 <label>
-رنگ نوشته
-</label>
-
-<input
-id="textColor"
-type="color"
-value="#111111">
-
-</div>
-
-
-<div class="control">
-
-<label>
 اندازه عنوان
 </label>
 
@@ -554,74 +473,27 @@ value="34">
 </div>
 
 
-<div class="control">
-
-<label>
-گردی گوشه‌ها
-</label>
-
-<input
-id="cornerRadius"
-type="range"
-min="0"
-max="40"
-value="15">
-
-</div>
-
-
-<div class="control">
-
-<label>
-متن دکمه
-</label>
-
-<input
-id="buttonText"
-type="text"
-value="شروع کنید">
-
-</div>
-
-
-
-<!-- قابلیت VIP -->
-
 <div
-class="vip-option"
-id="removeBrandOption"
-onclick="openVIPIfLocked()">
+class="vip-feature"
+onclick="vipFeature()">
 
-👑 حذف نام Ghost Site Builder
+👑 امکانات طلایی
 
-<span
-class="lock"
-id="brandLock">
-🔒
-</span>
-
-<small>
-این قابلیت مخصوص VIP Ghost است.
+<small id="vipText">
+🔒 برای استفاده باید VIP Ghost داشته باشید.
 </small>
 
 </div>
 
 
 <div
-class="vip-option"
-id="goldThemeOption"
-onclick="openVIPIfLocked()">
+class="vip-feature"
+onclick="removeBrand()">
 
-✨ تم طلایی VIP
-
-<span
-class="lock"
-id="goldLock">
-🔒
-</span>
+🧹 حذف نام سازنده
 
 <small>
-طراحی سایت با ظاهر طلایی.
+🔒 مخصوص VIP Ghost
 </small>
 
 </div>
@@ -636,27 +508,15 @@ onclick="saveDesign()">
 </button>
 
 
-<button
-class="button reset"
-onclick="resetDesign()">
-
-🔄 بازنشانی
-
-</button>
-
 </div>
 
 
-
-<!-- پیش‌نمایش -->
 
 <div class="preview-box">
 
-<div class="preview-label">
-
-👀 پیش‌نمایش زنده
-
-</div>
+<p>
+👀 پیش‌نمایش
+</p>
 
 
 <div
@@ -664,7 +524,7 @@ class="preview"
 id="preview">
 
 
-<header
+<div
 class="preview-header"
 id="previewHeader">
 
@@ -676,111 +536,68 @@ id="previewLogo">
 
 </div>
 
-<div class="preview-nav">
-
-<span>
+<div>
 خانه
-</span>
-
-<span>
-درباره
-</span>
-
-<span>
-تماس
-</span>
+</div>
 
 </div>
 
-</header>
 
+<div class="preview-hero">
 
-<section class="preview-hero">
+<h1
+class="preview-title"
+id="previewTitle">
 
-<h1 id="previewTitle">
 سایت من
+
 </h1>
 
 <p>
-این متن نمونه سایت شماست.
+این یک نمونه سایت است.
 </p>
 
 <a
 href="#"
-class="preview-button"
-id="previewButton">
+class="preview-button">
 
 شروع کنید
 
 </a>
 
-</section>
+</div>
 
 
-<section
-class="preview-cards">
+<div class="cards">
 
-
-<div class="preview-card">
-
-<div>
+<div class="card">
 🚀
-</div>
-
-<h3>
+<br>
 سریع
-</h3>
-
-<p>
-سایت سریع و کاربردی
-</p>
-
 </div>
 
-
-<div class="preview-card">
-
-<div>
+<div class="card">
 🎨
-</div>
-
-<h3>
+<br>
 زیبا
-</h3>
-
-<p>
-طراحی حرفه‌ای
-</p>
-
 </div>
 
-
-<div class="preview-card">
-
-<div>
+<div class="card">
 📱
-</div>
-
-<h3>
+<br>
 موبایلی
-</h3>
-
-<p>
-مناسب گوشی
-</p>
+</div>
 
 </div>
 
-</section>
 
-
-<footer
-class="preview-footer"
-id="previewFooter">
+<div
+class="footer"
+id="footer">
 
 ساخته شده توسط Ghost Site Builder
 
-</footer>
+</div>
 
 
 </div>
@@ -791,85 +608,6 @@ id="previewFooter">
 
 
 <script>
-
-
-/* عناصر */
-
-const siteName =
-document.getElementById("siteName");
-
-const backgroundColor =
-document.getElementById("backgroundColor");
-
-const headerColor =
-document.getElementById("headerColor");
-
-const cardColor =
-document.getElementById("cardColor");
-
-const buttonColor =
-document.getElementById("buttonColor");
-
-const textColor =
-document.getElementById("textColor");
-
-const titleSize =
-document.getElementById("titleSize");
-
-const cornerRadius =
-document.getElementById("cornerRadius");
-
-const buttonText =
-document.getElementById("buttonText");
-
-const preview =
-document.getElementById("preview");
-
-const previewHeader =
-document.getElementById("previewHeader");
-
-const previewLogo =
-document.getElementById("previewLogo");
-
-const previewTitle =
-document.getElementById("previewTitle");
-
-const previewButton =
-document.getElementById("previewButton");
-
-const previewFooter =
-document.getElementById("previewFooter");
-
-const cards =
-document.querySelectorAll(
-    ".preview-card"
-);
-
-
-/* تشخیص رنگ متن */
-
-function contrast(hex){
-
-    hex =
-    hex.replace("#","");
-
-    const r =
-    parseInt(hex.substring(0,2),16);
-
-    const g =
-    parseInt(hex.substring(2,4),16);
-
-    const b =
-    parseInt(hex.substring(4,6),16);
-
-    const brightness =
-    (r*299 + g*587 + b*114)
-    /1000;
-
-    return brightness > 150
-    ? "#000"
-    : "#fff";
-}
 
 
 /* بررسی VIP */
@@ -883,207 +621,35 @@ function isVIP(){
 }
 
 
-/* اعمال وضعیت VIP */
+/* اعمال VIP */
 
 function applyVIP(){
 
-    if(!isVIP()){
-        return;
-    }
+    if(
+        isVIP()
+    ){
 
-
-    document.body.classList.add(
-        "vip-active"
-    );
-
-
-    document.getElementById(
-        "brandLock"
-    ).innerText = "✅";
-
-
-    document.getElementById(
-        "goldLock"
-    ).innerText = "✅";
-
-
-    document.getElementById(
-        "removeBrandOption"
-    ).classList.add(
-        "unlocked"
-    );
-
-
-    document.getElementById(
-        "goldThemeOption"
-    ).classList.add(
-        "unlocked"
-    );
-
-
-    /*
-    تم طلایی
-    */
-
-    headerColor.value =
-    "#17120a";
-
-    cardColor.value =
-    "#241d0a";
-
-    buttonColor.value =
-    "#d4af37";
-
-    textColor.value =
-    "#fff";
-
-
-    updatePreview();
-
-}
-
-
-/* تغییرات */
-
-function updatePreview(){
-
-    const name =
-    siteName.value || "سایت من";
-
-
-    previewLogo.innerText =
-    name;
-
-    previewTitle.innerText =
-    name;
-
-    previewButton.innerText =
-    buttonText.value ||
-    "شروع کنید";
-
-
-    preview.style.background =
-    backgroundColor.value;
-
-
-    preview.style.color =
-    textColor.value;
-
-
-    previewHeader.style.background =
-    headerColor.value;
-
-
-    previewHeader.style.color =
-    contrast(
-        headerColor.value
-    );
-
-
-    previewTitle.style.color =
-    textColor.value;
-
-
-    previewTitle.style.fontSize =
-    titleSize.value + "px";
-
-
-    previewButton.style.background =
-    buttonColor.value;
-
-
-    previewButton.style.color =
-    contrast(
-        buttonColor.value
-    );
-
-
-    previewButton.style.borderRadius =
-    cornerRadius.value + "px";
-
-
-    preview.style.borderRadius =
-    cornerRadius.value + "px";
-
-
-    cards.forEach(function(card){
-
-        card.style.background =
-        cardColor.value;
-
-        card.style.color =
-        contrast(
-            cardColor.value
+        document.body.classList.add(
+            "vip"
         );
 
-        card.style.borderRadius =
-        cornerRadius.value + "px";
-
-    });
-
-
-    previewFooter.style.background =
-    headerColor.value;
-
-
-    previewFooter.style.color =
-    contrast(
-        headerColor.value
-    );
-
-
-    /*
-    حذف برند برای VIP
-    */
-
-    if(isVIP()){
-
-        previewFooter.style.display =
-        "none";
-
-    }else{
-
-        previewFooter.style.display =
-        "block";
+        document.getElementById(
+            "vipText"
+        ).innerText =
+        "✅ امکانات طلایی فعال است.";
 
     }
 
 }
 
 
-/* اتصال کنترل‌ها */
+/* قابلیت VIP */
 
-[
-    siteName,
-    backgroundColor,
-    headerColor,
-    cardColor,
-    buttonColor,
-    textColor,
-    titleSize,
-    cornerRadius,
-    buttonText
+function vipFeature(){
 
-].forEach(function(control){
-
-    control.addEventListener(
-        "input",
-        updatePreview
-    );
-
-    control.addEventListener(
-        "change",
-        updatePreview
-    );
-
-});
-
-
-/* رفتن به VIP */
-
-function openVIPIfLocked(){
-
-    if(!isVIP()){
+    if(
+        !isVIP()
+    ){
 
         window.location.href =
         "vip.html";
@@ -1092,51 +658,163 @@ function openVIPIfLocked(){
 
     }
 
+    alert(
+        "👑 امکانات VIP Ghost فعال هستند!"
+    );
+
 }
+
+
+/* حذف برند */
+
+function removeBrand(){
+
+    if(
+        !isVIP()
+    ){
+
+        window.location.href =
+        "vip.html";
+
+        return;
+
+    }
+
+    document.getElementById(
+        "footer"
+    ).style.display =
+    "none";
+
+}
+
+
+/* پیش‌نمایش */
+
+const siteName =
+document.getElementById(
+    "siteName"
+);
+
+const background =
+document.getElementById(
+    "background"
+);
+
+const headerColor =
+document.getElementById(
+    "headerColor"
+);
+
+const cardColor =
+document.getElementById(
+    "cardColor"
+);
+
+const buttonColor =
+document.getElementById(
+    "buttonColor"
+);
+
+const titleSize =
+document.getElementById(
+    "titleSize"
+);
+
+
+function update(){
+
+    document.getElementById(
+        "preview"
+    ).style.background =
+    background.value;
+
+
+    document.getElementById(
+        "previewHeader"
+    ).style.background =
+    headerColor.value;
+
+
+    document.getElementById(
+        "previewLogo"
+    ).innerText =
+    siteName.value;
+
+
+    document.getElementById(
+        "previewTitle"
+    ).innerText =
+    siteName.value;
+
+
+    document.getElementById(
+        "previewTitle"
+    ).style.fontSize =
+    titleSize.value + "px";
+
+
+    document.querySelectorAll(
+        ".card"
+    ).forEach(function(card){
+
+        card.style.background =
+        cardColor.value;
+
+    });
+
+
+    document.querySelector(
+        ".preview-button"
+    ).style.background =
+    buttonColor.value;
+
+}
+
+
+[
+    siteName,
+    background,
+    headerColor,
+    cardColor,
+    buttonColor,
+    titleSize
+].forEach(function(el){
+
+    el.addEventListener(
+        "input",
+        update
+    );
+
+});
 
 
 /* ذخیره */
 
 function saveDesign(){
 
-    const design = {
-
-        siteName:
-        siteName.value,
-
-        backgroundColor:
-        backgroundColor.value,
-
-        headerColor:
-        headerColor.value,
-
-        cardColor:
-        cardColor.value,
-
-        buttonColor:
-        buttonColor.value,
-
-        textColor:
-        textColor.value,
-
-        titleSize:
-        titleSize.value,
-
-        cornerRadius:
-        cornerRadius.value,
-
-        buttonText:
-        buttonText.value,
-
-        vip:
-        isVIP()
-
-    };
-
-
     localStorage.setItem(
         "ghost_design",
-        JSON.stringify(design)
+        JSON.stringify({
+
+            name:
+            siteName.value,
+
+            background:
+            background.value,
+
+            header:
+            headerColor.value,
+
+            card:
+            cardColor.value,
+
+            button:
+            buttonColor.value,
+
+            title:
+            titleSize.value
+
+        })
     );
 
 
@@ -1147,100 +825,13 @@ function saveDesign(){
 }
 
 
-/* بازنشانی */
+/* شروع */
 
-function resetDesign(){
+applyVIP();
 
-    localStorage.removeItem(
-        "ghost_design"
-    );
-
-    location.reload();
-
-}
-
-
-/* بارگذاری */
-
-function loadDesign(){
-
-    const saved =
-    localStorage.getItem(
-        "ghost_design"
-    );
-
-
-    if(saved){
-
-        try{
-
-            const design =
-            JSON.parse(saved);
-
-
-            siteName.value =
-            design.siteName ||
-            "سایت من";
-
-
-            backgroundColor.value =
-            design.backgroundColor ||
-            "#ffffff";
-
-
-            headerColor.value =
-            design.headerColor ||
-            "#eeeeee";
-
-
-            cardColor.value =
-            design.cardColor ||
-            "#eeeeee";
-
-
-            buttonColor.value =
-            design.buttonColor ||
-            "#111111";
-
-
-            textColor.value =
-            design.textColor ||
-            "#111111";
-
-
-            titleSize.value =
-            design.titleSize ||
-            "34";
-
-
-            cornerRadius.value =
-            design.cornerRadius ||
-            "15";
-
-
-            buttonText.value =
-            design.buttonText ||
-            "شروع کنید";
-
-        }
-
-        catch(e){}
-
-    }
-
-
-    updatePreview();
-
-    applyVIP();
-
-}
-
-
-/* اجرا */
-
-loadDesign();
+update();
 
 </script>
 
 </body>
-    </html>
+</html>
